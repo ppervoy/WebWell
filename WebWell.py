@@ -3,7 +3,9 @@ import logging
 import RPi.GPIO as GPIO
 
 configFile = "WebWell.ini"
-
+testInterval = "00:00:01"
+windowOpen = "01:01:00"
+windowClose = "01:00:00"
 
 
 def loadConfig (file = configFile):
@@ -11,7 +13,7 @@ def loadConfig (file = configFile):
     config.read(file)
     logging.debug("Loading configuration from %s", file)
     
-    for e in config.selections():
+    for e in config.sections():
         if e == "Global":
             global testInterval
             global windowOpen
