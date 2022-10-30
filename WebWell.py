@@ -4,10 +4,12 @@ import RPi.GPIO as GPIO
 
 configFile = "WebWell.ini"
 
+
+
 def loadConfig (file = configFile):
     config = configparser.RawConfigParser()
     config.read(file)
-    logging.debug("Loading configuration from %s ***", file)
+    logging.debug("Loading configuration from %s", file)
     
     for e in config.selections():
         if e == "Global":
